@@ -1,4 +1,7 @@
 pretty much:
-uploads
-random stuff i want people to see
+
+uploads.
+
+random stuff i want people to see.
+
 thats it
