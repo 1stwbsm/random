@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
+const params = new URLSearchParams(window.location.search);
+const fileUrl = params.get('file');
+if (!fileUrl) {
+    document.body.innerHTML = "No file specified";
+} else {
+    const ext = fileUrl.split('.').pop().toLowerCase();
+    let element;
+
+    const imageExts = [
+        'png','jpg','jpeg','gif','webp','bmp','tiff','tif','heic','heif','ico','svg','svgz','apng','jfif','pjpeg','pjp','exr','raw'
+    ];
+
+    const videoExts = [
+        'mp4','mov','webm','ogg','ogv','avi','flv','mkv','m4v','mts','m2ts','3gp','3g2','wmv','vob','rm','rmvb','ts','mxf'
+    ];
+
+    const audioExts = [
+        'mp3','wav','ogg','oga','flac','aac','m4a','wma','alac','aiff','au','amr','opus','mid','midi','rmi'
+    ];
+
+    const docExts = [
+        'pdf','doc','docx','xls','xlsx','ppt','pptx','odt','ods','odp','rtf','txt','md','csv','tsv','log','epub','fb2','azw','azw3','djvu','tex','wpd'
+    ];
+
+    const archiveExts = [
+        'zip','rar','7z','tar','gz','tgz','bz2','xz','iso','cab','arj','lz','lzma','lzo','z','tz','bz','jar','war','ear'
+    ];
+
+    const codeExts = [
+        'html','htm','css','js','ts','json','xml','yaml','yml','py','java','c','cpp','h','hpp','cs','go','rb','php','sh','bat','pl','swift','rs','kt','kts'
+    ];
+
+    const fontExts = [
+        'ttf','otf','woff','woff2','eot','svg'
+    ];
+
+    const model3DExts = [
+        'obj','fbx','dae','3ds','stl','ply','glb','gltf','x3d','blend','usd','usda','usdc','usdz'
+    ];
+
+    if (imageExts.includes(ext)) {
+        element = document.createElement('img');
+        element.src = fileUrl;
+    } else if (videoExts.includes(ext)) {
+        element = document.createElement('video');
+        element.src = fileUrl;
+        element.controls = true;
+        element.autoplay = true;
+        element.loop = true;
+    } else if (audioExts.includes(ext)) {
+        element = document.createElement('audio');
+        element.src = fileUrl;
+        element.controls = true;
+        element.autoplay = false;
+    } else if (docExts.includes(ext)) {
+        element = document.createElement('iframe');
+        element.src = fileUrl;
+        element.width = '100%';
+        element.height = '100%';
+        element.frameBorder = '0';
+    } else if (archiveExts.includes(ext)) {
+        element = document.createElement('p');
+        element.textContent = 'Archive file: ' + fileUrl;
+    } else if (codeExts.includes(ext)) {
+        element = document.createElement('iframe');
+        element.src = fileUrl;
+        element.width = '100%';
+        element.height = '100%';
+        element.frameBorder = '0';
+    } else if (fontExts.includes(ext)) {
+        element = document.createElement('p');
+        element.textContent = 'Font file: ' + fileUrl;
+    } else if (model3DExts.includes(ext)) {
+        element = document.createElement('iframe');
+        element.src = fileUrl;
+        element.width = '100%';
+        element.height = '100%';
+        element.frameBorder = '0';
+    } else {
+        // Default fallback
+        element = document.createElement('iframe');
+        element.src = fileUrl;
+        element.width = '100%';
+        element.height = '100%';
+        element.frameBorder = '0';
+    }
+
+    document.body.appendChild(element);
+}
+</script>
+</body>
+</html>
