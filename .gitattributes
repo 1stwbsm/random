@@ -1,9 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a195d962191d15348ec6e1a8c58e19e5b52f024682debf2bcb56507a72b2e8a2
-size 81
-pixevolve_transformation.webm filter=lfs diff=lfs merge=lfs -text
-*.mp4 filter=lfs diff=lfs merge=lfs -text
 *.webm filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
 *.flac filter=lfs diff=lfs merge=lfs -text
 *.mp3 filter=lfs diff=lfs merge=lfs -text
 *.gif filter=lfs diff=lfs merge=lfs -text
