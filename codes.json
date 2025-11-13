@@ -1,18 +1,3 @@
-{
-  "1": {
-    "CODE": "83917744",
-    "ID": "MaxLevels"
-  },
-  "2": {
-    "CODE": "67698008",
-    "ID": "InfScroll"
-  },
-  "3": {
-    "CODE": "44554455",
-    "ID": "NoPrice"
-  },
-  "4": {
-    "CODE": "55663344",
-    "ID": "NoFriction"
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c651bafb680ead7e1e7350f70f74370b5b19e17c24b013af57bcf00eded81029
+size 242
