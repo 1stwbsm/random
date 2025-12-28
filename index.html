@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Repo Browser</title>
+  <style>
+    ul { list-style-type: none; }
+    li { cursor: pointer; }
+  </style>
+</head>
+<body>
+<ul id="tree"></ul>
+
+<script>
+const owner = "1stwbsm";
+const repo = "random";
+
+async function load(path = "", parent) {
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`);
+  const data = await res.json();
+
+  const ul = document.createElement("ul");
+  parent.appendChild(ul);
+
+  data.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item.name;
+    ul.appendChild(li);
+
+    if (item.type === "dir") {
+      li.onclick = () => {
+        if (li.loaded) return;
+        li.loaded = true;
+        load(item.path, li);
+      };
+    } else {
+      li.onclick = () => window.open(item.html_url);
+    }
+  });
+}
+
+load("", document.getElementById("tree"));
+</script>
+</body>
+</html>
