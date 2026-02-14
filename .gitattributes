@@ -1,5 +1,4 @@
 *.webm filter=lfs diff=lfs merge=lfs -text
-GahBarGahSuseSuse.mp4 filter=lfs diff=lfs merge=lfs -text
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 *.flac filter=lfs diff=lfs merge=lfs -text
 *.mp3 filter=lfs diff=lfs merge=lfs -text
